@@ -1,3 +1,7 @@
+let alarmTimeSet = null;
+let weekDays = document.getElementById("days");
+let alarmControls = document.getElementById("alarmControl");
+
 const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const month = [
   "January",
@@ -25,7 +29,7 @@ const digitalClock = function () {
   hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = twelveHourFormat(hour) <= 12 ? "AM" : "PM";
+  period = hour >= 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
