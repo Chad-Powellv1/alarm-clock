@@ -56,11 +56,6 @@ const addZero = function (i) {
   return i;
 };
 
-// let dateTimeSet = document.createElement("input");
-// dateTimeSet.type = "datetime-local";
-// dateTimeSet.id = "dateTimeSet";
-// alarmControls.appendChild("dateTimeSet");
-
 /* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 
 const init = function () {
