@@ -1,6 +1,37 @@
-let alarmTimeSet = null;
+let alarmSetTime = null;
+let alarmTimeLeft = null;
+let alarmTimeValue = document.getElementById("input");
 let weekDays = document.getElementById("days");
+
 let alarmControls = document.getElementById("alarmControl");
+let alarmSet = document.getElementById("alarmSet");
+
+/* CREATE TIME INPUT FOR ALARM */
+let inputAlarm = document.createElement("input");
+inputAlarm.type = "datetime-local";
+alarmSet.appendChild(inputAlarm);
+
+/* CREATE ALARM OFF BUTTON */
+let alarmOffBtn = document.createElement("button");
+alarmOffBtn.id = "alarmOff";
+alarmOffBtn.innerHTML = "Alarm Off";
+alarmControls.appendChild(alarmOffBtn);
+
+/* CREATE SNOOZE BUTTON */
+let snoozeBtn = document.createElement("button");
+snoozeBtn.id = "snooze";
+snoozeBtn.innerHTML = "Snooze";
+alarmControls.appendChild(snoozeBtn);
+
+/* CREATE HEADING */
+let heading = document.getElementById("header");
+let h1 = document.createElement("h1");
+let title = document.createTextNode("JavaScript Clock Project");
+h1.appendChild(title);
+heading.appendChild(title);
+
+const alarmAudio = new Audio("reveille.mp3");
+let alarmTime = null;
 
 /* FUNCTION TO GET TIME AND DISPLAY */
 const digitalClock = function () {
@@ -13,12 +44,16 @@ const digitalClock = function () {
   hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = hour <= 12 ? "AM" : "PM";
+  period = twelveHourFormat(hour) < 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
   document.getElementById("timeDisplay").innerHTML = time;
 };
+
+inputAlarm.addEventListener("input", (e) => {
+  alarmTime = e.target.value;
+});
 
 /* FUNCTION TO GET CURRENT DATE  AND DISPLAY */
 const getDateDisplay = function () {
@@ -52,9 +87,9 @@ const getDateDisplay = function () {
 
 const twelveHourFormat = function (hour) {
   if (hour > 12) {
-    hour - 12;
+    hour = hour - 12;
   } else {
-    12;
+    hour = 12;
   }
   return hour;
 };
@@ -67,6 +102,25 @@ const addZero = function (i) {
   }
   return i;
 };
+
+const setAlarm = function (d, alarmTime) {
+  if (alarmTime) {
+    let currentTime = d;
+    let alarmTimeOut = new Date(alarmTime);
+
+    if (alarmTime > currentTime) {
+      alarmTimeOut = alarmTimeOut.getTime() - currentTime.getTime();
+      alarmTimeLeft = setTimeOut(() => alarmAudio.play(), alarmTimeOut);
+    }
+  }
+};
+
+/* CREATE SET ALARM BUTTON */
+let setAlarmBtn = document.createElement("button");
+setAlarmBtn.id = "setAlarm";
+setAlarmBtn.innerHTML = "Set Alarm";
+setAlarmBtn.onclick = setAlarm();
+alarmSet.appendChild(setAlarmBtn);
 
 /* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 

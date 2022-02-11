@@ -27,9 +27,6 @@ header {
     background-color: #AABABE;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
-}
-
-h1 {
     color: #000000;
     font-family: Roboto;
     font-style: normal;
@@ -37,14 +34,14 @@ h1 {
     font-size: 50px;
     line-height: 52px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 2.5%;
+    padding-top: 5%;
 }
 
 #container {
     position: relative;
     max-width: 650px;
     height: inherit;
-    margin: 10% auto auto;
+    margin: 5% auto auto;
     background: rgba(0, 0, 0, 0.83);
     border: 25px solid #AABABE;
     border-radius: 25px;
@@ -63,28 +60,30 @@ h1 {
 #timeDisplay {
     color: red;
     font-family: 'digital-7.ttf';
-
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     text-align: center;
     font-size: 72px;
     box-shadow: inset 0 0 12px 12px rgba(255, 0, 0, 0.13);
 }
 
-#ampm {
 
-    font-size: 24px;
-}
 
 #date {
     color: red;
     font-family: 'digital-7.ttf';
-
+    margin-bottom: 2.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     text-align: center;
     font-size: 38px;
     margin-top: 0.5%;
     box-shadow: inset 0 0 12px 12px rgba(255, 0, 0, 0.13);
 }
 
-#days, {
+#days {
     position: absolute;
     width: 350px;
     height: 20px;
@@ -104,23 +103,58 @@ h1 {
 }
 
 #alarmControl {
-    padding-top: 5%;
+    padding-top: 2.5%;
     margin: auto auto;
+    padding-right: 5%;
+    padding-left: 5%;
     text-align: center;
-    justify-content: space-around;
+    align-content: space-around;
 
 }
 
-label {
-    font-size: large;
-    margin-top: 5%;
+#alarmSet {
+    margin-top: 3.5%;
+    margin-bottom: .5%;
+}
+
+#snooze {
+    font-size: x-large;
+    padding: 1.5%;
+    border-radius: 25px;
+    box-shadow: inset 0 0 12px 12px rgba(255, 0, 0, 0.13);
+    background-color: yellow;
+    color: black;
+    margin-left: 5%;
+    margin-top: 1.5%;
+    margin-bottom: 2.5%;
+}
+
+#alarmOff {
+    font-size: x-large;
+    padding: 1.5%;
+    border-radius: 25px;
+    box-shadow: inset 0 0 12px 12px rgba(255, 0, 0, 0.13);
+    background-color: green;
+    color: white;
+    margin-right: 5%;
+    margin-top: .5%;
+    margin-bottom: 2.5%;
 }
 
 input {
+    font-size: x-large;
     margin-top: 2.5%;
+    padding-left: 1.5%;
+    padding-right: 2.5%;
 }
 
-/* #alarmSet {
-    display: "none";
-    background-image: url('/img/alarm.png');
-} */
+#setAlarm {
+    font-size: x-large;
+    margin-left: 1.5%;
+    font-size: x-large;
+    padding: 1.5%;
+    border-radius: 25px;
+    box-shadow: inset 0 0 12px 12px rgba(255, 0, 0, 0.13);
+    background-color: red;
+    color: black;
+}
