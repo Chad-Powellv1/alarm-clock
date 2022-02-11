@@ -2,22 +2,6 @@ let alarmTimeSet = null;
 let weekDays = document.getElementById("days");
 let alarmControls = document.getElementById("alarmControl");
 
-const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const month = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 /* FUNCTION TO GET TIME AND DISPLAY */
 const digitalClock = function () {
   let date = new Date();
@@ -29,20 +13,48 @@ const digitalClock = function () {
   hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = hour >= 12 ? "AM" : "PM";
+  period = hour <= 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
   document.getElementById("timeDisplay").innerHTML = time;
 };
 
+/* FUNCTION TO GET CURRENT DATE  AND DISPLAY */
+const getDateDisplay = function () {
+  const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let d = new Date();
+  let currentDay = day[d.getDay()];
+  let currentDate = addZero(d.getDate());
+  let currentMonth = month[d.getMonth()];
+  let currentYear = d.getFullYear();
+  let currentFullDate = `${currentDay} ${currentMonth} ${currentDate}, ${currentYear}`;
+
+  document.getElementById("date").innerHTML = currentFullDate;
+};
+
 /* FUNCTION TO CONVERT HOUR TO 12HR FORMAT */
 
 const twelveHourFormat = function (hour) {
   if (hour > 12) {
-    hour = hour - 12;
+    hour - 12;
   } else {
-    hour = 12;
+    12;
   }
   return hour;
 };
@@ -60,4 +72,5 @@ const addZero = function (i) {
 
 const init = function () {
   setInterval(digitalClock, 1000);
+  getDateDisplay();
 };
