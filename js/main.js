@@ -36,15 +36,6 @@ const digitalClock = function () {
   document.getElementById("timeDisplay").innerHTML = time;
 };
 
-/* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
-
-const addZero = function (i) {
-  if (i < 10) {
-    i = i + "0";
-  }
-  return i;
-};
-
 /* FUNCTION TO CONVERT HOUR TO 12HR FORMAT */
 
 const twelveHourFormat = function (hour) {
@@ -55,6 +46,20 @@ const twelveHourFormat = function (hour) {
   }
   return hour;
 };
+
+/* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
+
+const addZero = function (i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+};
+
+// let dateTimeSet = document.createElement("input");
+// dateTimeSet.type = "datetime-local";
+// dateTimeSet.id = "dateTimeSet";
+// alarmControls.appendChild("dateTimeSet");
 
 /* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 
