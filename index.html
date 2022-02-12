@@ -16,7 +16,15 @@
     </div>
     <div id="24hr"></div>
     <div id="alarmControl">
-      <div id="alarmSet"></div>
+      <button onclick="alarmOff()" id="alarmOff">Alarm Off</button>
+      <button onclick="snooze()" id="snooze">Snooze</button>
+      <div id="alarmSet">
+        <input
+          onchange="setAlarmTime(this.value)"
+          type="datetime-local"
+          id="input"
+        /><button onclick="setAlarm()" id="setAlarm">Set Alarm</button>
+      </div>
     </div>
     <script src="./js/main.js"></script>
   </body>
