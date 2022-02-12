@@ -21,8 +21,10 @@ const digitalClock = function () {
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
   let period = "AM";
+  
+  /* CONVERT TO 12HR  FORMAT */
+  hour = (hour % 12) || 12;
 
-  hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
   period = twelveHourFormat(hour) < 12 ? "AM" : "PM";
@@ -60,19 +62,6 @@ const getDateDisplay = function () {
   document.getElementById("date").textContent = currentFullDate;
 };
 
-/* FUNCTION TO CONVERT HOUR TO 12HR FORMAT */
-
-const twelveHourFormat = function (hour) {
-  if (hour > 12) {
-    hour = hour % 12;
-  } 
-  else if (hour === 12) {
-  hour = 12;
-  } else {
-    hour;
-  }
-  return hour;
-};
 
 /* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
 const addZero = function (i) {
