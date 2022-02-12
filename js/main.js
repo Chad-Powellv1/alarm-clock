@@ -97,10 +97,10 @@ const alarmOff = function () {
   }
 };
 
-const snooze = function () {
-  setInterval(alarmAudio.pause(), 5000);
-  clearInterval(alarmAudio.play());
-};
+// const snooze = function () {
+//   setInterval(alarmAudio.pause(), 5000);
+//   clearInterval();
+// };
 /* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 
 const init = function () {
