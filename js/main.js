@@ -22,12 +22,10 @@ const digitalClock = function () {
   let seconds = date.getSeconds();
   let period = "AM";
   
-  /* CONVERT TO 12HR  FORMAT */
-  hour = (hour % 12) || 12;
-
+  hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = hour < 12 ? "AM" : "PM";
+  period = twelvleHourFormat(hour) < 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
@@ -62,6 +60,16 @@ const getDateDisplay = function () {
   document.getElementById("date").textContent = currentFullDate;
 };
 
+/* FUNCTION TO CONVERT HOUR TO 12HR FORMAT */
+
+const twelveHourFormat = function (hour) {
+  if (hour > 12) {
+    return hour - 12;
+  } else 
+  return hour
+};
+
+
 
 /* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
 const addZero = function (i) {
@@ -90,12 +98,6 @@ const alarmOff = function () {
     clearTimeout(alarmTimeout);
   }
 };
-
-// const snooze = function () {
-//   setInterval(alarmAudio.pause(), 5000);
-//   clearInterval();
-// };
-/* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 
 const init = function () {
   setInterval(digitalClock, 1000);
