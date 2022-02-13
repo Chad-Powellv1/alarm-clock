@@ -22,10 +22,11 @@ const digitalClock = function () {
   let seconds = date.getSeconds();
   let period = "AM";
   
+  period = hour < 12 ? "AM" : "PM";
   hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = hour < 12 ? "AM" : "PM";
+ 
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
