@@ -27,7 +27,7 @@ const digitalClock = function () {
 
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = twelveHourFormat(hour) < 12 ? "AM" : "PM";
+  period = hour < 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
