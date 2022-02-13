@@ -63,10 +63,10 @@ const getDateDisplay = function () {
 /* FUNCTION TO CONVERT HOUR TO 12HR FORMAT */
 
 const twelveHourFormat = function (hour) {
-  if (hour) {
-    hour % 12 || 12;
-  }
-  return hour;
+  if (hour > 12) {
+    return hour - 12;
+  } else 
+  return hour
 };
 
 /* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
