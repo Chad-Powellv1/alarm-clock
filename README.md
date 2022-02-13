@@ -23,4 +23,4 @@ Stretch Goals
 
 <br>
 
-[Take a look...](#)
+[Take a look...](https://chad-powellv1.github.io/alarm-clock/)

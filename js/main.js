@@ -21,11 +21,11 @@ const digitalClock = function () {
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
   let period = "AM";
-
+  
   hour = twelveHourFormat(hour);
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  period = twelveHourFormat(hour) < 12 ? "AM" : "PM";
+  period = twelvleHourFormat(hour) < 12 ? "AM" : "PM";
 
   let time = `${hour} : ${minutes} : ${seconds} ${period}`;
 
@@ -69,6 +69,8 @@ const twelveHourFormat = function (hour) {
   return hour
 };
 
+
+
 /* FUNCTION TO ADD ZERO IF NUM IS LESS THAN 10 */
 const addZero = function (i) {
   if (i < 10) {
@@ -96,12 +98,6 @@ const alarmOff = function () {
     clearTimeout(alarmTimeout);
   }
 };
-
-// const snooze = function () {
-//   setInterval(alarmAudio.pause(), 5000);
-//   clearInterval();
-// };
-/* FUNCTION TO START PROGRAM & UPDATE CLOCK EVERY SECOND */
 
 const init = function () {
   setInterval(digitalClock, 1000);
